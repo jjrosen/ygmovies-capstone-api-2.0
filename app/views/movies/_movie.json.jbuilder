@@ -1,0 +1,11 @@
+json.id movie.id
+json.name movie.name
+json.movie_url movie.movie_url
+json.poster movie.poster
+json.overview movie.overview
+json.actors movie.actors
+json.rating movie.rating
+json.user_rating movie.user_rating
+json.release_date movie.release_date
+json.genres movie.genres
+json.run_time movie.run_time
