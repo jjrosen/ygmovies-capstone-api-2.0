@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
     run_time: params[:run_time]
   )
 
-    if @movie.save
+    if @movie.save!
       # Handle genres safely, whether they come as string or array
       if params[:genres].present?
         genre_names = Array(params[:genres])
@@ -48,7 +48,7 @@ class MoviesController < ApplicationController
   def update
     @movie = Movie.find(params[:id])
 
-    if @movie.update(
+    if @movie.update!(
       name: params[:name],
       movie_url: params[:movie_url],
       poster: params[:poster],
