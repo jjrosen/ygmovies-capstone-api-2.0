@@ -37,12 +37,12 @@ class MoviesController < ApplicationController
             @movie.genres << genre unless @movie.genres.include?(genre)
           end
         end
-
-        render :show, status: :created
-      else
-        render json: { errors: @movie.errors.full_messages }, status: :unprocessable_entity
       end
+      render :show, status: :created
+    else
+      render json: { errors: @movie.errors.full_messages }, status: :unprocessable_entity
     end
+    
   end
 
   def update
@@ -68,15 +68,15 @@ class MoviesController < ApplicationController
           genre_names = genre_names.first.split(",").map(&:strip)
         
 
-        # Replace old genres with new ones
-        genres = genre_names.map { |name| Genre.find_or_create_by(name: name) }
-        @movie.genres = genres
-      end
+          # Replace old genres with new ones
+          genres = genre_names.map { |name| Genre.find_or_create_by(name: name) }
+          @movie.genres = genres
+        end
 
-        render :show, status: :ok
-      else
-        render json: { errors: @movie.errors.full_messages }, status: :unprocessable_entity
       end
+      render :show, status: :ok
+    else
+      render json: { errors: @movie.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
